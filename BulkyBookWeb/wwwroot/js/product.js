@@ -12,12 +12,11 @@ function loadDataTable() {
             "url": "/Admin/Product/GetAll"
         },
         "columns": [
-            { "data": "title", "width": "15%" },         //the values have to match with the json returned from GetAll response of the httpRequest. 
-            { "data": "isbn", "width": "15%" },
-            { "data": "price", "width": "15%" },
-            //{ "data": "author", "width": "15%" },
-            //{ "data": "category", "width": "15%" },
-            //{ "data": "covertype", "width": "15%" },
+            { "data": "title", "width": "25%" },         //the values have to match with the json returned from GetAll response of the httpRequest. 
+            { "data": "isbn", "width": "25%" },
+            { "data": "price", "width": "25%" },
+            { "data": "author", "width": "25%" },
+            { "data": "category", "width": "15%" },
         ]
     });
 

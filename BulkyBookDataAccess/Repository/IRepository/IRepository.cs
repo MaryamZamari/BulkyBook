@@ -9,8 +9,8 @@ namespace BulkyBookDataAccess.Repository.IRepository
    public interface IRepository<T> where T: class
     {
         //T-Category
-        T GetFirstOrDefault(System.Linq.Expressions.Expression<Func<T, bool>> filter);
-        IEnumerable<T> GetAll();
+        T GetFirstOrDefault(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includeProperties = null); //include Properties to add category/covertype for products
+        IEnumerable<T> GetAll(string? includeProperties = null); //include Properties to add category/covertype for products
         void Add(T entity);
 
         void Remove(T entity);

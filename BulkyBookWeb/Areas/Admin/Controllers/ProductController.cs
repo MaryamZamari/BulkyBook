@@ -160,7 +160,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var productList = _UnitOfWork.Product.GetAll();
+            var productList = _UnitOfWork.Product.GetAll(includeProperties: "Category");                  //include category is to get categories of each product. 
             return Json(new { data= productList });
         }
         #endregion

@@ -17,6 +17,8 @@ namespace BulkyBookDataAccess.Repository
         public Repository(ApplicationDbContext db)
         {
             _db = db;
+            //------------to make categories list and covertype list available for products 
+            _db.Products.Include(u => u.Category);
             this.dbSet = _db.Set<T>(); 
         }
 
@@ -25,19 +27,33 @@ namespace BulkyBookDataAccess.Repository
         {
             dbSet.Add(entity); //added because had error for adding a covertype 
         }
-
-        public IEnumerable<T> GetAll()
+        //includeProp("Category ,CoverType")
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if(includeProperties != null)
+            {
+                foreach(var includeProp in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.ToList(); 
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
+        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)   //- include properties to make categories list and covertype list available for products 
         {
             IQueryable<T> query = dbSet;
             //query = query.FirstOrDefault(filter);
             //return query.ToList();
             query= query.Where(filter);
+            if (includeProperties != null)
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.FirstOrDefault();
         }
 
