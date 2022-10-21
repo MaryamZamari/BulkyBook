@@ -13,7 +13,6 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IWebHostEnvironment _hostEnvironment; //for creating the first product
 
@@ -28,11 +27,9 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
        
         public IActionResult Index()
         {
-          //  IEnumerable<Product> objProductList = _UnitOfWork.Product.GetAll();              commented since ill call API 
-            
+          //  IEnumerable<Product> objProductList = _UnitOfWork.Product.GetAll();    ----> commented since i'll call API in order to show the product list.  
             return View();
         }
-
         //--------------------------------------------------------Instead of Create and Edit, we add Upsert
         //public IActionResult Create()
         //{
@@ -106,7 +103,6 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                     string fileName= Guid.NewGuid().ToString();
                     var uploads = Path.Combine(wwwRootPath, @"images\products");
                     var extension = Path.GetExtension(file.FileName);
-
                     //to find the path of the file(fileStreams) and create it 
                     using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {

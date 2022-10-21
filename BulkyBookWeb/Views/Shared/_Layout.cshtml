@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="~/BulkyBookWeb.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" /> <!--for table api of products-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" /> <!--for table api of products-->
+   
     
 </head>
 <body>
@@ -87,7 +89,10 @@
     <!-----------API Scripts ---------------------------------->
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-----------SweetAlert ---------------------------------->
-    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> <!-----------for table api of products ---------------------------------->
+    @*<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> <!-----------for table api of products ---------------------------------->*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-----------Define JQUERY ---------------------------------->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js" defer></script> <!-----------Define JQUERY for table api of products---------------------------------->
+   
     <!--Bootstrap 5 bundle-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
