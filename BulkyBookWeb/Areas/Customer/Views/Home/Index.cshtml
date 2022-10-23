@@ -1,28 +1,45 @@
-﻿@{
+﻿@model IEnumerable<Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="row pb-3">
+    @foreach(var Product in Model){
+        <div>
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12 p-1" style="border:1px solid #008cba; border-radius:5px;">
+                    <div class="card">
+                        <img src="@Product.ImageUrl" class="card-img-top rounded" />
+                        <div class="card-body">
+                        <div class="pl-1">
+                            <p class="card-title h5 text-primary">@Product.Title</p>
+                            <p class="card-title h5 text-info">@Product.Author</p>
+                        </div>
+                        <div class="pl-1">
+                            <p> List Price: <strike><b>@Product.ListPrice.ToString("0.00") </b></strike></p>
+                        </div>
+                        <div class="pl-1">
+                            <p> As low as: <b>@Product.Price100.ToString("0.00") </b></p>
+                        </div>
+                        </div>
+                            <div>
+                                <a asp-action="Details" class="btn btn-primary form-control" asp-route-id="@Product.Id">Details</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+           
+       </div>
+        </div>
+    }
+
+</div>
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome _ HomeView</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<table id="tblData" class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>ISBN</th>
-            <th>Price</th>
-            <th>Author</th>
-            <th>Category</th>
-        </tr>
-    </thead>
-</table>
-
-
-
-<!-- for adding the api of the dataTable-->
-@section Scripts
-{
-    <script src="~/js/product.js"></script>
-}

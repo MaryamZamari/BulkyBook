@@ -25,19 +25,22 @@
 </div>
 
 <h1>Index Product</h1>
-<table class="table table-bordered table-striped" style="width:100%">
+<table id="tblData" class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
             <th>Title</th>
-            <th>Description</th>
             <th>ISBN</th>
             <th>Price</th>
             <th>Author</th>
             <th>Category</th>
-            <th>Cover Type</th>
+            <th></th> <!-- the buttons -->
         </tr>
     </thead>
 </table>
+
+
+
+
   @* ######  ----------we dont need tbody, because here we are showing the tbody using API call.---------############## 
   @*<tbody>
         @foreach(var obj in Model){
@@ -60,4 +63,8 @@
         }
     </tbody>  *@
 
-
+<!-- for adding the api of the dataTable-->
+@section Scripts
+    {
+    <script src="~/js/product.js"></script>
+}
